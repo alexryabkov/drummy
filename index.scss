@@ -1,0 +1,134 @@
+$text-color: #c9c9c9;
+$main-indent: 20px;
+$display-color: #1769e3;
+$default-text-font: "Aldrich", sans-serif;
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("cool-background-white.png");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: $default-text-font;
+}
+
+main {
+  position: relative;
+  width: 660px;
+  height: 510px;
+  background: #2d2d2d;
+  mix-blend-mode: hard-light;
+  border-radius: 10px;
+
+  .logo-line-top {
+    border-top: 4px solid $text-color;
+    position: relative;
+    width: 215px;
+    left: $main-indent;
+    top: $main-indent;
+  }
+
+  .logo-line-left {
+    border-left: 4px solid $text-color;
+    height: 52px;
+    position: relative;
+    left: $main-indent;
+    top: $main-indent;
+  }
+
+  .logo-line-bottom {
+    border-top: 4px solid $text-color;
+    position: relative;
+    left: $main-indent;
+    top: $main-indent;
+    width: 180px;
+  }
+
+  .logo-text {
+    font-size: 2.9rem;
+    color: $text-color;
+    position: relative;
+    top: -28px;
+    left: 31px;
+  }
+
+  .display {
+    position: relative;
+    left: $main-indent;
+    top: -5px;
+    width: 280px;
+    height: 150px;
+    background: $display-color;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    padding: 0 0 0.3rem 2rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .drum-kit {
+    color: $text-color;
+    font-family: "DotGothic16", sans-serif;
+    font-size: 1.5rem;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+  }
+
+  .pads,
+  .notes {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 310px;
+    height: 310px;
+  }
+
+  .pad-row,
+  .note-row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .pad,
+  .note {
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    width: 70px;
+    height: 70px;
+    background: #424242;
+  }
+
+  .pads {
+    top: $main-indent;
+    right: $main-indent;
+  }
+
+  .pad {
+    color: $text-color;
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .notes {
+    width: 620px;
+    height: 140px;
+    bottom: $main-indent;
+    left: $main-indent;
+  }
+
+  .note {
+    width: 60px;
+    height: 60px;
+    background: #a5a5a5;
+  }
+}
