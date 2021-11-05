@@ -1,8 +1,11 @@
 $text-color: #c9c9c9;
 $main-indent: 1.25rem;
 $display-color: #1769e3;
-$default-text-font: "Aldrich", sans-serif;
-$run-button-icon-color: #25b16e;
+$run-button-icon-color: #0d9151;
+$button-background-dark: #424242;
+$button-background-lignt: #a5a5a5;
+$red-color: #ad2f2f;
+$border-color-dark: #101010;
 
 body {
   margin: 0;
@@ -12,7 +15,6 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  font-family: $default-text-font;
 }
 
 main {
@@ -58,6 +60,7 @@ main {
     position: relative;
     top: -1.75rem;
     left: 2rem;
+    font-family: "Aldrich", sans-serif;
   }
 
   .display {
@@ -72,11 +75,117 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    font-family: "Roboto Mono", sans-serif;
+  }
+
+  .controls {
+    font-size: 0.8rem;
+    margin: $main-indent + 0.3rem 0 0 $main-indent;
+    color: $text-color;
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .buttons {
+    display: flex;
+  }
+
+  .run-button,
+  .select-button,
+  .clear-button {
+    margin-right: 0.4rem;
+    width: 3.13rem;
+    height: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    button {
+      margin: 0.1rem;
+      flex-grow: 1;
+      border: 1px solid $border-color-dark;
+      border-radius: 10px;
+      width: 100%;
+      box-sizing: border-box;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      background: $button-background-dark;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .run-button-icon {
+    width: 0;
+    height: 0;
+    border: 0.6rem solid transparent;
+    border-right: 0;
+    border-left: 1rem solid $run-button-icon-color;
+  }
+
+  .select-button-icon {
+    border: 0.7rem solid $red-color;
+    border-radius: 0.7rem;
+  }
+
+  .clear-button-icon {
+    color: $red-color;
+    font-size: 1.65rem;
+  }
+
+  .tempo {
+    flex-grow: 0.4;
+  }
+
+  .display-tempo-wrap {
+    margin-top: 2px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .display-tempo {
+    height: 2.21rem;
+    font-size: 1.5rem;
+    text-align: right;
+    padding-right: 0.3rem;
+    background: $display-color;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    flex-grow: 1;
+    font-family: "Roboto Mono", sans-serif;
+  }
+
+  .tempo-buttons {
+    display: flex;
+    flex-direction: column;
+    button {
+      background: $button-background-dark;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 1.5rem;
+      height: 50%;
+      border: 1px solid $border-color-dark;
+      border-radius: 5px;
+      box-sizing: border-box;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  .tempo-button-up {
+    border: 0.25rem solid transparent;
+    border-top: 0;
+    border-bottom: 0.5rem solid grey;
+  }
+
+  .tempo-button-down {
+    border: 0.3rem solid transparent;
+    border-bottom: 0;
+    border-top: 0.6rem solid grey;
   }
 
   .drum-kit {
     color: $text-color;
-    font-family: "DotGothic16", sans-serif;
     font-size: 1.5rem;
     vertical-align: middle;
     display: flex;
@@ -100,13 +209,14 @@ main {
 
   .pad,
   .note {
-    border: 1px solid #000000;
+    border: 1px solid $border-color-dark;
     box-sizing: border-box;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     width: 4.4rem;
     height: 4.4rem;
-    background: #424242;
+    background: $button-background-dark;
+    font-size: 1.4rem;
   }
 
   .pads {
@@ -114,8 +224,8 @@ main {
   }
 
   .pad {
+    font-family: "Roboto Mono", sans-serif;
     color: $text-color;
-    font-size: 1.8rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -130,6 +240,6 @@ main {
   .note {
     width: 3.8rem;
     height: 3.8rem;
-    background: #a5a5a5;
+    background: $button-background-lignt;
   }
 }
