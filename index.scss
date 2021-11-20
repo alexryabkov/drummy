@@ -6,6 +6,7 @@ $button-background-dark: #424242;
 $button-background-light: #a5a5a5;
 $red-color: #ad2f2f;
 $border-color-dark: #101010;
+$background-color-dark: #2d2d2d;
 // $border-color-light: #c9c9c9;
 
 body {
@@ -22,8 +23,13 @@ body {
   outline: none;
 }
 
+button:hover,
+.drum-kit:hover {
+  cursor: pointer;
+}
+
 main {
-  background: #2d2d2d;
+  background: $background-color-dark;
   mix-blend-mode: hard-light;
   border-radius: 10px;
   display: flex;
@@ -73,14 +79,32 @@ main {
     width: 17.5rem;
     height: 9rem;
     background: $display-color;
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0rem 0.3rem 0.3rem rgba(0, 0, 0, 0.25);
     border-radius: 5px;
-    padding: 0 0 0.3rem 2rem;
+    padding: 0.5rem 1.5rem 0.1rem 1.5rem;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     font-family: "Roboto Mono", sans-serif;
+  }
+
+  .drum-kit {
+    color: $text-color;
+    font-size: 1.5rem;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    padding-left: 0.5rem;
+  }
+
+  .drum-kit-selected {
+    color: $background-color-dark;
+    background-color: $text-color;
+    font-size: 1.5rem;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
   }
 
   .controls {
@@ -112,7 +136,7 @@ main {
       border-radius: 10px;
       width: 100%;
       box-sizing: border-box;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      box-shadow: 0px 0.3rem 0.3rem rgba(0, 0, 0, 0.25);
       background: $button-background-dark;
       display: flex;
       align-items: center;
@@ -154,7 +178,7 @@ main {
     text-align: right;
     padding-right: 0.3rem;
     background: $display-color;
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0rem 0.3rem 0.3rem rgba(0, 0, 0, 0.25);
     border-radius: 5px;
     flex-grow: 1;
     font-family: "Roboto Mono", sans-serif;
@@ -172,7 +196,7 @@ main {
       height: 50%;
       border-radius: 5px;
       box-sizing: border-box;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      box-shadow: 0rem 0.3rem 0.3rem rgba(0, 0, 0, 0.25);
       margin-left: 0.1rem;
     }
   }
@@ -197,14 +221,6 @@ main {
     }
   }
 
-  .drum-kit {
-    color: $text-color;
-    font-size: 1.5rem;
-    vertical-align: middle;
-    display: flex;
-    align-items: center;
-  }
-
   .pads,
   .notes {
     display: flex;
@@ -224,7 +240,7 @@ main {
   .note {
     border: none;
     box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0rem 0.3rem 0.3rem rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     width: 4.4rem;
     height: 4.4rem;
@@ -245,7 +261,7 @@ main {
   }
 
   .playing {
-    box-shadow: 0px 0px 10px rgb(211, 19, 19);
+    box-shadow: 0rem 0rem 0.7rem rgb(211, 19, 19);
     color: rgb(211, 19, 19);
   }
 
