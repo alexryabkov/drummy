@@ -23,9 +23,9 @@
             <div class="logo-line-bottom"></div>
             <div class="logo-text">Drummy</div>
           </div>
-          <div class="display">
-            <div class="drum-kit drum-kit-selected">Drum Kit 1</div>
-            <div class="drum-kit">Drum Kit 2</div>
+          <div id="drum-kit-list" class="display">
+            <div id="linn-drum" data-dirname="linn-drum" class="drum-kit drum-kit-selected">Linn Drum</div>
+            <div id="roland-tr-808" data-dirname="roland-tr-808" class="drum-kit">Roland TR-808</div>
             <div class="drum-kit">Drum Kit 3</div>
             <div class="drum-kit">Drum Kit 4</div>
           </div>
@@ -70,30 +70,112 @@
         </div>
         <div class="pads">
           <div class="pad-row">
-            <button data-key="49" class="pad">1</button>
-            <button data-key="50" class="pad">2</button>
-            <button data-key="51" class="pad">3</button>
-            <button data-key="52" class="pad">4</button>
+            <button data-key="49" class="pad">
+              <div>1</div>
+              <div id="pad-1" class="pad-caption"></div>
+            </button>
+            <button data-key="50" class="pad">
+              <div>2</div>
+              <div id="pad-2" class="pad-caption"></div>
+            </button>
+            <button data-key="51" class="pad">
+              <div>3</div>
+              <div id="pad-3" class="pad-caption"></div>
+            </button>
+            <button data-key="52" class="pad">
+              <div>4</div>
+              <div id="pad-4" class="pad-caption"></div>
+            </button>
           </div>
           <div class="pad-row">
-            <button data-key="81" class="pad">q</button>
-            <button data-key="87" class="pad">w</button>
-            <button data-key="69" class="pad">e</button>
-            <button data-key="82" class="pad">r</button>
+            <button data-key="81" class="pad">
+              <div>q</div>
+              <div id="pad-5" class="pad-caption"></div>
+            </button>
+            <button data-key="87" class="pad">
+              <div>w</div>
+              <div id="pad-6" class="pad-caption"></div>
+            </button>
+            <button data-key="69" class="pad">
+              <div>e</div>
+              <div id="pad-7" class="pad-caption"></div>
+            </button>
+            <button data-key="82" class="pad">
+              <div>r</div>
+              <div id="pad-8" class="pad-caption"></div>
+            </button>
           </div>
           <div class="pad-row">
-            <button data-key="65" class="pad">a</button>
-            <button data-key="83" class="pad">s</button>
-            <button data-key="68" class="pad">d</button>
-            <button data-key="70" class="pad">f</button>
+            <button data-key="65" class="pad">
+              <div>a</div>
+              <div id="pad-9" class="pad-caption"></div>
+            </button>
+            <button data-key="83" class="pad">
+              <div>s</div>
+              <div id="pad-10" class="pad-caption"></div>
+            </button>
+            <button data-key="68" class="pad">
+              <div>d</div>
+              <div id="pad-11" class="pad-caption"></div>
+            </button>
+            <button data-key="70" class="pad">
+              <div>f</div>
+              <div id="pad-12" class="pad-caption"></div>
+            </button>
           </div>
           <div class="pad-row">
-            <button data-key="90" class="pad">z</button>
-            <button data-key="88" class="pad">x</button>
-            <button data-key="67" class="pad">c</button>
-            <button data-key="86" class="pad">v</button>
+            <button data-key="90" class="pad">
+              <div>z</div>
+              <div id="pad-13" class="pad-caption"></div>
+            </button>
+            <button data-key="88" class="pad">
+              <div>x</div>
+              <div id="pad-14" class="pad-caption"></div>
+            </button>
+            <button data-key="67" class="pad">
+              <div>c</div>
+              <div id="pad-15" class="pad-caption"></div>
+            </button>
+            <button data-key="86" class="pad">
+              <div>v</div>
+              <div id="pad-16" class="pad-caption"></div>
+            </button>
           </div>
         </div>
+        <!--Drum Kit 1-->
+        <audio data-key="49" data-enabled="true" src="sounds/linn-drum/1-Cabasa-Hard.mp3"></audio>
+        <audio data-key="50" data-enabled="true" src="sounds/linn-drum/2-Clap.mp3"></audio>
+        <audio data-key="51" data-enabled="true" src="sounds/linn-drum/3-Cowbell.mp3"></audio>
+        <audio data-key="52" data-enabled="true" src="sounds/linn-drum/4-Crash.mp3"></audio>
+        <audio data-key="81" data-enabled="true" src="sounds/linn-drum/5-Hat-Close.mp3"></audio>
+        <audio data-key="87" data-enabled="true" src="sounds/linn-drum/6-Hat-Open.mp3"></audio>
+        <audio data-key="69" data-enabled="true" src="sounds/linn-drum/7-Kick-Hard.mp3"></audio>
+        <audio data-key="82" data-enabled="true" src="sounds/linn-drum/8-Ride-Hard.mp3"></audio>
+        <audio data-key="65" data-enabled="true" src="sounds/linn-drum/9-Ride-Soft.mp3"></audio>
+        <audio data-key="83" data-enabled="true" src="sounds/linn-drum/10-Sidestick.mp3"></audio>
+        <audio data-key="68" data-enabled="true" src="sounds/linn-drum/11-Snare-Hard.mp3"></audio>
+        <audio data-key="70" data-enabled="true" src="sounds/linn-drum/12-Snare-Soft.mp3"></audio>
+        <audio data-key="90" data-enabled="true" src="sounds/linn-drum/13-Tambourine-Hard.mp3"></audio>
+        <audio data-key="88" data-enabled="true" src="sounds/linn-drum/14-Tom1.mp3"></audio>
+        <audio data-key="67" data-enabled="true" src="sounds/linn-drum/15-Tom2.mp3"></audio>
+        <audio data-key="86" data-enabled="true" src="sounds/linn-drum/16-Tom3.mp3"></audio>
+        <!--Drum Kit 2-->
+        <audio data-key="49" data-enabled="false" src="sounds/roland-tr-808/1-Clap.mp3"></audio>
+        <audio data-key="50" data-enabled="false" src="sounds/roland-tr-808/2-Clava.mp3"></audio>
+        <audio data-key="51" data-enabled="false" src="sounds/roland-tr-808/3-Congas.mp3"></audio>
+        <audio data-key="52" data-enabled="false" src="sounds/roland-tr-808/4-Cowbell.mp3"></audio>
+        <audio data-key="81" data-enabled="false" src="sounds/roland-tr-808/5-Cymbal.mp3"></audio>
+        <audio data-key="87" data-enabled="false" src="sounds/roland-tr-808/6-Hat-Open.mp3"></audio>
+        <audio data-key="69" data-enabled="false" src="sounds/roland-tr-808/7-Hat-Closed.mp3"></audio>
+        <audio data-key="82" data-enabled="false" src="sounds/roland-tr-808/8-Kick-Hard.mp3"></audio>
+        <audio data-key="65" data-enabled="false" src="sounds/roland-tr-808/9-Kick-Soft.mp3"></audio>
+        <audio data-key="83" data-enabled="false" src="sounds/roland-tr-808/10-Maraca.mp3"></audio>
+        <audio data-key="68" data-enabled="false" src="sounds/roland-tr-808/11-Rimshot.mp3"></audio>
+        <audio data-key="70" data-enabled="false" src="sounds/roland-tr-808/12-Snare-Hard.mp3"></audio>
+        <audio data-key="90" data-enabled="false" src="sounds/roland-tr-808/13-Snare-Soft.mp3"></audio>
+        <audio data-key="88" data-enabled="false" src="sounds/roland-tr-808/14-Tom-High.mp3"></audio>
+        <audio data-key="67" data-enabled="false" src="sounds/roland-tr-808/15-Tom-Low.mp3"></audio>
+        <audio data-key="86" data-enabled="false" src="sounds/roland-tr-808/16-Tom-Mid.mp3"></audio>
       </div>
       <div class="notes">
         <div class="note-row">
