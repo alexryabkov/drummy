@@ -7,7 +7,14 @@ $button-background-light: #a5a5a5;
 $red-color: #ad2f2f;
 $border-color-dark: #101010;
 $background-color-dark: #2d2d2d;
-// $border-color-light: #c9c9c9;
+
+@import url("https://fonts.googleapis.com/css2?family=Aldrich&family=Roboto:wght@100;300&display=swap");
+@font-face {
+  font-family: "Digital Numbers Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Digital Numbers Regular"), url("DigitalNumbers-Regular.woff") format("woff");
+}
 
 body {
   margin: 0;
@@ -35,11 +42,6 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  .top-controls {
-    display: flex;
-    justify-content: space-between;
-  }
 
   .logo-line-top {
     border-top: 4px solid $text-color;
@@ -74,42 +76,9 @@ main {
     font-family: "Aldrich", sans-serif;
   }
 
-  .display {
-    margin-left: $main-indent;
-    width: 17.5rem;
-    height: 9rem;
-    background: $display-color;
-    box-shadow: inset 0rem 0.3rem 0.3rem rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-    padding: 0.5rem 1.5rem 0.1rem 1.5rem;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    font-family: "Roboto Mono", sans-serif;
-  }
-
-  .drum-kit {
-    color: $text-color;
-    font-size: 1.5rem;
-    vertical-align: middle;
-    display: flex;
-    align-items: center;
-    padding-left: 0.5rem;
-  }
-
-  .drum-kit-selected {
-    color: $background-color-dark;
-    background-color: $text-color;
-    font-size: 1.5rem;
-    vertical-align: middle;
-    display: flex;
-    align-items: center;
-  }
-
   .controls {
     font-size: 0.8rem;
-    margin: $main-indent + 0.3rem 0 0 $main-indent;
+    margin: 0 0 0 $main-indent;
     color: $text-color;
     font-family: "Roboto", sans-serif;
     text-align: center;
@@ -181,7 +150,7 @@ main {
     box-shadow: inset 0rem 0.3rem 0.3rem rgba(0, 0, 0, 0.25);
     border-radius: 5px;
     flex-grow: 1;
-    font-family: "Roboto Mono", sans-serif;
+    font-family: "Digital Numbers Regular", sans-serif;
   }
 
   .tempo-buttons {
@@ -221,39 +190,35 @@ main {
     }
   }
 
-  .pads,
-  .notes {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 19.3rem;
-    height: 19.3rem;
-  }
+  // .tracks {
+  //   display: flex;
+  //   flex-direction: column;
+  // }
 
-  .pad-row,
+  .track,
   .note-row {
     display: flex;
     justify-content: space-between;
   }
 
-  .pad,
+  .instrument,
   .note {
     border: none;
     box-sizing: border-box;
     box-shadow: 0rem 0.3rem 0.3rem rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
+    border-radius: 5px;
     width: 4.4rem;
-    height: 4.4rem;
+    height: 2.4rem;
     background: $button-background-dark;
-    font-size: 1.4rem;
+    font-size: 1rem;
   }
 
-  .pads {
+  .tracks {
     margin: $main-indent $main-indent 0.6rem $main-indent + 0.6rem;
   }
 
-  .pad {
-    font-family: "Roboto Mono", sans-serif;
+  .instrument {
+    font-family: "Roboto", sans-serif;
     color: $text-color;
     display: flex;
     justify-content: center;
@@ -270,15 +235,10 @@ main {
     color: rgb(211, 19, 19);
   }
 
-  .notes {
-    width: 38.75rem;
-    height: 8.75rem;
-    margin: $main-indent;
-  }
-
   .note {
-    width: 3.8rem;
-    height: 3.8rem;
+    width: 2rem;
+    height: 2rem;
+    margin: 0 0.4rem;
     background: $button-background-light;
   }
 }
