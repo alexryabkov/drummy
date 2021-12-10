@@ -30,8 +30,7 @@ body {
   outline: none;
 }
 
-button:hover,
-.drum-kit:hover {
+button:hover {
   cursor: pointer;
 }
 
@@ -42,6 +41,11 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  .top-controls {
+    display: flex;
+    justify-content: space-between;
+  }
 
   .logo-line-top {
     border-top: 4px solid $text-color;
@@ -78,7 +82,7 @@ main {
 
   .controls {
     font-size: 0.8rem;
-    margin: 0 0 0 $main-indent;
+    margin: $main-indent + 0.3rem 0 0 $main-indent;
     color: $text-color;
     font-family: "Roboto", sans-serif;
     text-align: center;
@@ -190,34 +194,38 @@ main {
     }
   }
 
-  // .tracks {
-  //   display: flex;
-  //   flex-direction: column;
-  // }
+  .pads,
+  .notes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 19.3rem;
+    height: 14.3rem;
+  }
 
-  .track,
+  .pad-row,
   .note-row {
     display: flex;
     justify-content: space-between;
   }
 
-  .instrument,
+  .pad,
   .note {
     border: none;
     box-sizing: border-box;
     box-shadow: 0rem 0.3rem 0.3rem rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
+    border-radius: 10px;
     width: 4.4rem;
-    height: 2.4rem;
+    height: 4.4rem;
     background: $button-background-dark;
-    font-size: 1rem;
+    font-size: 1.4rem;
   }
 
-  .tracks {
+  .pads {
     margin: $main-indent $main-indent 0.6rem $main-indent + 0.6rem;
   }
 
-  .instrument {
+  .pad {
     font-family: "Roboto", sans-serif;
     color: $text-color;
     display: flex;
@@ -235,10 +243,15 @@ main {
     color: rgb(211, 19, 19);
   }
 
+  .notes {
+    width: 38.75rem;
+    height: 8.75rem;
+    margin: $main-indent;
+  }
+
   .note {
-    width: 2rem;
-    height: 2rem;
-    margin: 0 0.4rem;
+    width: 3.8rem;
+    height: 3.8rem;
     background: $button-background-light;
   }
 }

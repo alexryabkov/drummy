@@ -7,39 +7,44 @@ const playSound = (keyCode) => {
   audio.play();
 };
 
-const highlightInstrumentMouse = (e) => {
-  const instrument = e.currentTarget;
+const highlightPadMouse = (e) => {
+  const cls = "playing";
+  const pad = e.currentTarget;
   if (e.button !== 0) {
     return;
   }
-  instrument.classList.add("playing");
-  playSound(instrument.dataset.key);
+  if (pad.classList.contains(cls)) {
+    return;
+  }
+  pad.classList.add(cls);
+  playSound(pad.dataset.key);
 };
 
-const highlightInstrumentKeyboard = (e) => {
+const highlightPadKeyboard = (e) => {
+  const cls = "playing";
   const keyCode = e.keyCode;
-  const instrument = document.querySelector(`.instrument[data-key="${keyCode}"]`);
-  if (!instrument) {
+  const pad = document.querySelector(`.pad[data-key="${keyCode}"]`);
+  if (!pad) {
     notAllowedKeyActive = e.type === "keydown";
     console.log(notAllowedKeyActive);
     return;
   }
-  if (!notAllowedKeyActive) {
-    instrument.classList.add("playing");
+  if (!notAllowedKeyActive && !pad.classList.contains(cls)) {
+    pad.classList.add(cls);
     playSound(keyCode);
   }
 };
 
-const turnOffInstruments = () => {
+const turnOffPads = () => {
   notAllowedKeyActive = false;
-  const instruments = document.querySelectorAll(`.instrument`);
-  instruments.forEach((instr) => instr.classList.remove("playing"));
+  const pads = document.querySelectorAll(`.pad`);
+  pads.forEach((instr) => instr.classList.remove("playing"));
 };
 
-window.addEventListener("keydown", highlightInstrumentKeyboard);
-window.addEventListener("keyup", turnOffInstruments);
-window.addEventListener("mouseup", turnOffInstruments);
-const instruments = document.querySelectorAll(".instrument");
-instruments.forEach((instr) => {
-  instr.addEventListener("mousedown", highlightInstrumentMouse);
+window.addEventListener("keydown", highlightPadKeyboard);
+window.addEventListener("keyup", turnOffPads);
+window.addEventListener("mouseup", turnOffPads);
+const pads = document.querySelectorAll(".pad");
+pads.forEach((instr) => {
+  instr.addEventListener("mousedown", highlightPadMouse);
 });
