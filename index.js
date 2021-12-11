@@ -1,50 +1,60 @@
-let notAllowedKeyActive = false;
+const playingCls = "playing";
+const padCls = "pad";
+const pads = document.querySelectorAll(`.${padCls}`);
+const modifierKeyActive = (e) =>
+  e.altKey || e.ctrlKey || e.metaKey || e.shiftKey;
 
-const playSound = (keyCode) => {
-  const audio = document.querySelector(`audio[data-key="${keyCode}"]`);
+const playSound = (key) => {
+  const audio = document.querySelector(`audio[data-key="${key}"]`);
   if (!audio) return;
   audio.currentTime = 0;
   audio.play();
 };
 
-const highlightPadMouse = (e) => {
-  const cls = "playing";
+const turnOnPadKeyboard = (e) => {
+  if (e.repeat) return;
+
+  const key = e.key;
+  const pad = document.querySelector(`.${padCls}[data-key="${key}"]`);
+  if (pad && !modifierKeyActive(e)) {
+    pad.classList.add(playingCls);
+    playSound(key);
+  }
+};
+
+const turnOffPadKeyboard = (e) => {
+  if (e.repeat) return;
+
+  const pad = document.querySelector(`.${padCls}[data-key="${e.key}"]`);
+  if (pad) pad.classList.remove(playingCls);
+};
+
+const turnOnPadMouse = (e) => {
+  if (e.button !== 0) return;
+
   const pad = e.currentTarget;
-  if (e.button !== 0) {
-    return;
-  }
-  if (pad.classList.contains(cls)) {
-    return;
-  }
-  pad.classList.add(cls);
-  playSound(pad.dataset.key);
-};
-
-const highlightPadKeyboard = (e) => {
-  const cls = "playing";
-  const keyCode = e.keyCode;
-  const pad = document.querySelector(`.pad[data-key="${keyCode}"]`);
-  if (!pad) {
-    notAllowedKeyActive = e.type === "keydown";
-    console.log(notAllowedKeyActive);
-    return;
-  }
-  if (!notAllowedKeyActive && !pad.classList.contains(cls)) {
-    pad.classList.add(cls);
-    playSound(keyCode);
+  if (!modifierKeyActive(e)) {
+    pad.classList.add(playingCls);
+    playSound(pad.dataset.key);
   }
 };
 
-const turnOffPads = () => {
-  notAllowedKeyActive = false;
-  const pads = document.querySelectorAll(`.pad`);
-  pads.forEach((instr) => instr.classList.remove("playing"));
+const turnOffPadMouse = (e) => {
+  console.log(e.currentTarget);
+  if (e.button !== 0) return;
+  e.stopPropagation();
+  e.currentTarget.classList.remove(playingCls);
 };
 
-window.addEventListener("keydown", highlightPadKeyboard);
-window.addEventListener("keyup", turnOffPads);
-window.addEventListener("mouseup", turnOffPads);
-const pads = document.querySelectorAll(".pad");
-pads.forEach((instr) => {
-  instr.addEventListener("mousedown", highlightPadMouse);
+const turnOffAllPads = (e) => {
+  if (e.button !== 0 || e.currentTarget.classList?.includes(padCls)) return;
+  pads.forEach((pad) => pad.classList.remove(playingCls));
+};
+
+window.addEventListener("keydown", turnOnPadKeyboard);
+window.addEventListener("keyup", turnOffPadKeyboard);
+pads.forEach((pad) => {
+  pad.addEventListener("mousedown", turnOnPadMouse);
+  pad.addEventListener("mouseup", turnOffPadMouse);
 });
+window.addEventListener("mouseup", turnOffAllPads);
