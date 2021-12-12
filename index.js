@@ -1,6 +1,8 @@
 const playingCls = "playing";
 const padCls = "pad";
 const pads = document.querySelectorAll(`.${padCls}`);
+let activePadMouse;
+
 const modifierKeyActive = (e) =>
   e.altKey || e.ctrlKey || e.metaKey || e.shiftKey;
 
@@ -11,9 +13,8 @@ const playSound = (key) => {
   audio.play();
 };
 
-const turnOnPadKeyboard = (e) => {
+const activatePadKeyboard = (e) => {
   if (e.repeat) return;
-
   const key = e.key;
   const pad = document.querySelector(`.${padCls}[data-key="${key}"]`);
   if (pad && !modifierKeyActive(e)) {
@@ -22,39 +23,30 @@ const turnOnPadKeyboard = (e) => {
   }
 };
 
-const turnOffPadKeyboard = (e) => {
+const deactivatePadKeyboard = (e) => {
   if (e.repeat) return;
-
   const pad = document.querySelector(`.${padCls}[data-key="${e.key}"]`);
   if (pad) pad.classList.remove(playingCls);
 };
 
-const turnOnPadMouse = (e) => {
+const activatePadMouse = (e) => {
   if (e.button !== 0) return;
-
   const pad = e.currentTarget;
   if (!modifierKeyActive(e)) {
+    activePadMouse = pad;
     pad.classList.add(playingCls);
     playSound(pad.dataset.key);
   }
 };
 
-const turnOffPadMouse = (e) => {
-  console.log(e.currentTarget);
+const deactivatePadMouse = (e) => {
   if (e.button !== 0) return;
-  e.stopPropagation();
-  e.currentTarget.classList.remove(playingCls);
+  activePadMouse?.classList.remove(playingCls);
 };
 
-const turnOffAllPads = (e) => {
-  if (e.button !== 0 || e.currentTarget.classList?.includes(padCls)) return;
-  pads.forEach((pad) => pad.classList.remove(playingCls));
-};
-
-window.addEventListener("keydown", turnOnPadKeyboard);
-window.addEventListener("keyup", turnOffPadKeyboard);
+window.addEventListener("keydown", activatePadKeyboard);
+window.addEventListener("keyup", deactivatePadKeyboard);
 pads.forEach((pad) => {
-  pad.addEventListener("mousedown", turnOnPadMouse);
-  pad.addEventListener("mouseup", turnOffPadMouse);
+  pad.addEventListener("mousedown", activatePadMouse);
 });
-window.addEventListener("mouseup", turnOffAllPads);
+window.addEventListener("mouseup", deactivatePadMouse);
