@@ -13,7 +13,8 @@ $background-color-dark: #2d2d2d;
   font-family: "Digital Numbers Regular";
   font-style: normal;
   font-weight: normal;
-  src: local("Digital Numbers Regular"), url("DigitalNumbers-Regular.woff") format("woff");
+  src: local("Digital Numbers Regular"),
+    url("DigitalNumbers-Regular.woff") format("woff");
 }
 
 body {
@@ -41,217 +42,239 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.top-controls {
+  display: flex;
+  justify-content: space-between;
+}
 
-  .top-controls {
-    display: flex;
-    justify-content: space-between;
-  }
+.logo-line-top {
+  border-top: 4px solid $text-color;
+  position: relative;
+  width: 13.5rem;
+  left: $main-indent;
+  top: $main-indent;
+}
 
-  .logo-line-top {
-    border-top: 4px solid $text-color;
-    position: relative;
-    width: 13.5rem;
-    left: $main-indent;
-    top: $main-indent;
-  }
+.logo-line-left {
+  border-left: 4px solid $text-color;
+  height: 3.25rem;
+  position: relative;
+  left: $main-indent;
+  top: $main-indent;
+}
 
-  .logo-line-left {
-    border-left: 4px solid $text-color;
-    height: 3.25rem;
-    position: relative;
-    left: $main-indent;
-    top: $main-indent;
-  }
+.logo-line-bottom {
+  border-top: 4px solid $text-color;
+  position: relative;
+  left: $main-indent;
+  top: $main-indent;
+  width: 11.25rem;
+}
 
-  .logo-line-bottom {
-    border-top: 4px solid $text-color;
-    position: relative;
-    left: $main-indent;
-    top: $main-indent;
-    width: 11.25rem;
-  }
+.logo-text {
+  font-size: 2.9rem;
+  color: $text-color;
+  position: relative;
+  top: -1.75rem;
+  left: 2rem;
+  font-family: "Aldrich", sans-serif;
+}
 
-  .logo-text {
-    font-size: 2.9rem;
-    color: $text-color;
-    position: relative;
-    top: -1.75rem;
-    left: 2rem;
-    font-family: "Aldrich", sans-serif;
-  }
+.controls {
+  font-size: 0.8rem;
+  margin: $main-indent + 0.3rem 0 0 $main-indent;
+  color: $text-color;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
 
-  .controls {
-    font-size: 0.8rem;
-    margin: $main-indent + 0.3rem 0 0 $main-indent;
-    color: $text-color;
-    font-family: "Roboto", sans-serif;
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-  }
+.buttons {
+  display: flex;
+}
 
-  .buttons {
-    display: flex;
-  }
-
-  .run-button,
-  .select-button,
-  .clear-button {
-    margin-right: 0.4rem;
-    width: 3.13rem;
-    height: 3.5rem;
-    display: flex;
-    flex-direction: column;
-    button {
-      margin: 0.1rem;
-      flex-grow: 1;
-      border: none;
-      border-radius: 10px;
-      width: 100%;
-      box-sizing: border-box;
-      box-shadow: 0px 0.3rem 0.3rem rgba(0, 0, 0, 0.25);
-      background: $button-background-dark;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-
-  .run-button-icon {
-    width: 0;
-    height: 0;
-    border: 0.6rem solid transparent;
-    border-right: 0;
-    border-left: 1rem solid $run-button-icon-color;
-  }
-
-  .select-button-icon {
-    border: 0.7rem solid $red-color;
-    border-radius: 0.7rem;
-  }
-
-  .clear-button-icon {
-    color: $red-color;
-    font-size: 1.65rem;
-  }
-
-  .tempo {
-    flex-grow: 0.4;
-  }
-
-  .display-tempo-wrap {
-    margin-top: 2px;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .display-tempo {
-    height: 2.21rem;
-    font-size: 1.5rem;
-    text-align: right;
-    padding-right: 0.3rem;
-    background: $display-color;
-    box-shadow: inset 0rem 0.3rem 0.3rem rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
+.run-button,
+.play-select-toggle,
+.clear-button {
+  margin-right: 0.4rem;
+  width: 3.13rem;
+  height: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  button {
+    margin: 0.1rem;
     flex-grow: 1;
-    font-family: "Digital Numbers Regular", sans-serif;
-  }
-
-  .tempo-buttons {
-    display: flex;
-    flex-direction: column;
-    button {
-      background: $button-background-dark;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 1.5rem;
-      height: 50%;
-      border-radius: 5px;
-      box-sizing: border-box;
-      box-shadow: 0rem 0.3rem 0.3rem rgba(0, 0, 0, 0.25);
-      margin-left: 0.1rem;
-    }
-  }
-
-  .tempo-button-up {
     border: none;
-    border-bottom: 1px solid $border-color-dark;
-    & > div {
-      border: 0.3rem solid transparent;
-      border-top: 0;
-      border-bottom: 0.6rem solid grey;
-    }
-  }
-
-  .tempo-button-down {
-    border: none;
-    border-top: 1px solid $border-color-dark;
-    & > div {
-      border: 0.3rem solid transparent;
-      border-bottom: 0;
-      border-top: 0.6rem solid grey;
-    }
-  }
-
-  .pads,
-  .notes {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 19.3rem;
-    height: 14.3rem;
-  }
-
-  .pad-row,
-  .note-row {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .pad,
-  .note {
-    border: none;
-    box-sizing: border-box;
-    box-shadow: 0rem 0.3rem 0.3rem rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    width: 4.4rem;
-    height: 4.4rem;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0px 0.3rem 0.3rem rgba(0, 0, 0, 0.25);
     background: $button-background-dark;
-    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+}
 
-  .pads {
-    margin: $main-indent $main-indent 0.6rem $main-indent + 0.6rem;
-  }
+.run-button-icon {
+  width: 0;
+  height: 0;
+  border: 0.6rem solid transparent;
+  border-right: 0;
+  border-left: 1rem solid $run-button-icon-color;
+}
 
-  .pad {
-    font-family: "Roboto", sans-serif;
-    color: $text-color;
+.clear-button-icon {
+  color: $red-color;
+  font-size: 1.65rem;
+}
+
+.switch {
+  display: block;
+  width: 4rem;
+  height: 2rem;
+  background-color: $button-background-dark;
+  border-radius: 1rem;
+
+  position: relative;
+}
+
+.switch input {
+  display: none;
+}
+
+.switch::before {
+  cursor: pointer;
+  content: "";
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background-color: $button-background-light;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  margin: 0 0.3rem;
+}
+
+.tempo {
+  flex-grow: 0.4;
+}
+
+.display-tempo-wrap {
+  margin-top: 2px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.display-tempo {
+  height: 2.21rem;
+  font-size: 1.5rem;
+  text-align: right;
+  padding-right: 0.3rem;
+  background: $display-color;
+  box-shadow: inset 0rem 0.3rem 0.3rem rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  flex-grow: 1;
+  font-family: "Digital Numbers Regular", sans-serif;
+}
+
+.tempo-buttons {
+  display: flex;
+  flex-direction: column;
+  button {
+    background: $button-background-dark;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    width: 1.5rem;
+    height: 50%;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 0rem 0.3rem 0.3rem rgba(0, 0, 0, 0.25);
+    margin-left: 0.1rem;
   }
+}
 
-  .pad-caption {
-    font-size: 0.6rem;
+.tempo-button-up {
+  border: none;
+  border-bottom: 1px solid $border-color-dark;
+  & > div {
+    border: 0.3rem solid transparent;
+    border-top: 0;
+    border-bottom: 0.6rem solid grey;
   }
+}
 
-  .playing {
-    box-shadow: 0rem 0rem 0.7rem rgb(211, 19, 19);
-    color: rgb(211, 19, 19);
+.tempo-button-down {
+  border: none;
+  border-top: 1px solid $border-color-dark;
+  & > div {
+    border: 0.3rem solid transparent;
+    border-bottom: 0;
+    border-top: 0.6rem solid grey;
   }
+}
 
-  .notes {
-    width: 38.75rem;
-    height: 8.75rem;
-    margin: $main-indent;
-  }
+.pads,
+.notes {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 19.3rem;
+  height: 14.3rem;
+}
 
-  .note {
-    width: 3.8rem;
-    height: 3.8rem;
-    background: $button-background-light;
-  }
+.pad-row,
+.note-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pad,
+.note {
+  border: none;
+  box-sizing: border-box;
+  box-shadow: 0rem 0.3rem 0.3rem rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  width: 4.4rem;
+  height: 4.4rem;
+  background: $button-background-dark;
+  font-size: 1.4rem;
+}
+
+.pads {
+  margin: $main-indent $main-indent 0.6rem $main-indent + 0.6rem;
+}
+
+.pad {
+  font-family: "Roboto", sans-serif;
+  color: $text-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.pad-caption {
+  font-size: 0.6rem;
+}
+
+.playing {
+  box-shadow: 0rem 0rem 0.7rem rgb(211, 19, 19);
+  color: rgb(211, 19, 19);
+}
+
+.notes {
+  width: 38.75rem;
+  height: 8.75rem;
+  margin: $main-indent;
+}
+
+.note {
+  width: 3.8rem;
+  height: 3.8rem;
+  background: $button-background-light;
 }
