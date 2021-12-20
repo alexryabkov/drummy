@@ -1,12 +1,13 @@
 $text-color: #c9c9c9;
 $main-indent: 1.25rem;
 $display-color: #1769e3;
-$run-button-icon-color: #0d9151;
+$run-btn-text-color: #0d9151;
+$clear-btn-text-color: #c42727;
 $button-background-dark: #424242;
 $button-background-light: #a5a5a5;
-$red-color: #ad2f2f;
 $border-color-dark: #101010;
 $background-color-dark: #2d2d2d;
+$playing-color: rgb(211, 19, 19);
 
 @import url("https://fonts.googleapis.com/css2?family=Aldrich&family=Roboto:wght@100;300&display=swap");
 @font-face {
@@ -41,8 +42,8 @@ main {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
+
 .top-controls {
   display: flex;
   justify-content: space-between;
@@ -83,139 +84,87 @@ main {
 
 .controls {
   font-size: 0.8rem;
-  margin: $main-indent + 0.3rem 0 0 $main-indent;
+  margin-left: $main-indent;
   color: $text-color;
   font-family: "Roboto", sans-serif;
-  text-align: center;
-  display: flex;
-  justify-content: space-between;
 }
 
-.buttons {
+#mode-btns {
   display: flex;
+  margin: 0.1rem 0rem;
 }
 
-.run-button,
-.play-select-toggle,
-.clear-button {
-  margin-right: 0.4rem;
-  width: 3.13rem;
-  height: 3.5rem;
+.control-btn {
+  width: 5rem;
+  height: 2.5rem;
   display: flex;
-  flex-direction: column;
-  button {
-    margin: 0.1rem;
-    flex-grow: 1;
-    border: none;
-    border-radius: 10px;
-    width: 100%;
-    box-sizing: border-box;
-    box-shadow: 0px 0.3rem 0.3rem rgba(0, 0, 0, 0.25);
-    background: $button-background-dark;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  font-size: 0.8rem;
+  color: $text-color;
+  border: none;
+  border-radius: 10px;
+  box-sizing: border-box;
+  box-shadow: 0px 0.3rem 0.3rem rgba(0, 0, 0, 0.25);
+  background: $button-background-dark;
+  align-items: center;
+  justify-content: center;
+  span {
+    font-size: 1.1rem;
   }
 }
 
-.run-button-icon {
-  width: 0;
-  height: 0;
-  border: 0.6rem solid transparent;
-  border-right: 0;
-  border-left: 1rem solid $run-button-icon-color;
+#run-btn {
+  margin-right: 1.2rem;
+  span {
+    color: $run-btn-text-color;
+  }
 }
 
-.clear-button-icon {
-  color: $red-color;
-  font-size: 1.65rem;
+#select-mode-btn {
+  margin-right: 1.2rem;
+  span {
+    color: $text-color;
+  }
 }
 
-.switch {
-  display: block;
-  width: 4rem;
-  height: 2rem;
-  background-color: $button-background-dark;
-  border-radius: 1rem;
-
-  position: relative;
+#clear-btn span {
+  color: $clear-btn-text-color;
 }
 
-.switch input {
-  display: none;
-}
-
-.switch::before {
-  cursor: pointer;
-  content: "";
-  width: 1.6rem;
-  height: 1.6rem;
-  border-radius: 50%;
-  background-color: $button-background-light;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translate(0, -50%);
-  margin: 0 0.3rem;
-}
-
-.tempo {
-  flex-grow: 0.4;
-}
-
-.display-tempo-wrap {
-  margin-top: 2px;
+#tempo {
+  margin-top: 1rem;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
 }
 
-.display-tempo {
-  height: 2.21rem;
+#display-caption {
+  margin-bottom: 0.2rem;
+}
+
+.tempo-btn {
+  transform: scale(0.7);
+}
+
+#tempo-btn-down span {
+  transform: rotate(180deg);
+}
+
+#display-tempo-wrap {
+  display: flex;
+  align-items: center;
+}
+
+#display-tempo {
+  height: 2.5rem;
+  width: 5rem;
   font-size: 1.5rem;
-  text-align: right;
-  padding-right: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: $display-color;
   box-shadow: inset 0rem 0.3rem 0.3rem rgba(0, 0, 0, 0.25);
   border-radius: 5px;
-  flex-grow: 1;
   font-family: "Digital Numbers Regular", sans-serif;
-}
-
-.tempo-buttons {
-  display: flex;
-  flex-direction: column;
-  button {
-    background: $button-background-dark;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 1.5rem;
-    height: 50%;
-    border-radius: 5px;
-    box-sizing: border-box;
-    box-shadow: 0rem 0.3rem 0.3rem rgba(0, 0, 0, 0.25);
-    margin-left: 0.1rem;
-  }
-}
-
-.tempo-button-up {
-  border: none;
-  border-bottom: 1px solid $border-color-dark;
-  & > div {
-    border: 0.3rem solid transparent;
-    border-top: 0;
-    border-bottom: 0.6rem solid grey;
-  }
-}
-
-.tempo-button-down {
-  border: none;
-  border-top: 1px solid $border-color-dark;
-  & > div {
-    border: 0.3rem solid transparent;
-    border-bottom: 0;
-    border-top: 0.6rem solid grey;
-  }
 }
 
 .pads,
@@ -263,8 +212,8 @@ main {
 }
 
 .playing {
-  box-shadow: 0rem 0rem 0.7rem rgb(211, 19, 19);
-  color: rgb(211, 19, 19);
+  box-shadow: 0rem 0rem 0.7rem $playing-color;
+  color: $playing-color;
 }
 
 .notes {

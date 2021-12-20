@@ -23,44 +23,30 @@
             <div class="logo-line-bottom"></div>
             <div class="logo-text">Drummy</div>
           </div>
-
           <div class="controls">
-            <div class="buttons">
-              <div class="run-button">
-                <div class="caption">Run</div>
-                <button>
-                  <div class="run-button-icon"></div>
+            <div id="mode-btns">
+              <button class="control-btn" id="run-btn">
+                <span>&#9654;&nbsp;</span>Run
+              </button>
+              <button class="control-btn" id="select-mode-btn">
+                <span>&#9898;&nbsp;</span>Select
+              </button>
+              <button class="control-btn" id="clear-btn">
+                <span>X&nbsp;</span>Clear
+              </button>
+            </div>
+            <div id="tempo">
+              <div id="display-caption">Tempo (bpm)</div>
+              <div id="display-tempo-wrap">
+                <button class="control-btn tempo-btn" id="tempo-btn-down">
+                  <span>&#9650;</span>
                 </button>
-              </div>
-              <div class="clear-button">
-                <div class="caption">Clear</div>
-                <button>
-                  <div class="clear-button-icon">X</div>
+                <div id="display-tempo">000</div>
+                <button class="control-btn tempo-btn" id="tempo-btn-up">
+                  <span>&#9650;</span>
                 </button>
               </div>
             </div>
-            <div class="play-select-toggle">
-              <div class="caption">Select</div>
-              <label class="switch">
-                <input type="checkbox" />
-              </label>
-            </div>
-            <!-- <div class="tempo">
-              <div class="caption">Tempo (bpm)</div>
-              <div class="display-tempo-wrap">
-                <div class="display-tempo">
-                  <div class="tempo-value">100</div>
-                </div>
-                <div class="tempo-buttons">
-                  <button class="tempo-button-up">
-                    <div></div>
-                  </button>
-                  <button class="tempo-button-down">
-                    <div></div>
-                  </button>
-                </div>
-              </div>
-            </div> -->
           </div>
         </div>
         <div class="pads">
