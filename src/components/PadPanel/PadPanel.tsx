@@ -21,8 +21,8 @@ function PadPanel() {
   const rows: JSX.Element[] = [];
   let row: JSX.Element[] = [];
 
-  for (let [keyboardKey, file] of soundKeysToFiles) {
-    row.push(<Pad key={`pad-${keyboardKey}`} keyboardKey={keyboardKey} file={file} />);
+  for (let [boundKey, file] of soundKeysToFiles) {
+    row.push(<Pad key={`pad-${boundKey}`} boundKey={boundKey} file={file} />);
 
     if (row.length === padsPerRow) {
       rows.push(

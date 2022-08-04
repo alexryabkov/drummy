@@ -1,53 +1,58 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
+import { useMemo } from "react";
+import { useCallback } from "react";
+
 import "./styles/Pad.scss";
 
 type Props = {
-  keyboardKey: string;
+  boundKey: string;
   file: string;
 };
 
-function Pad({ keyboardKey, file }: Props) {
+function Pad({ boundKey, file }: Props) {
   const [active, setActive] = useState(false);
-  const audio = new Audio(file);
+  const audio = useMemo(() => new Audio(file), [file]);
 
-  function activate() {
-    setActive(true);
-    audio.currentTime = 0;
-    audio.play();
-  }
+  const activatePad = useCallback(
+    (activate: boolean) => {
+      setActive(activate);
+      if (activate) {
+        audio.currentTime = 0;
+        audio.play();
+      }
+    },
+    [audio]
+  );
 
-  function deactivate() {
-    setActive(false);
-  }
+  const handleKey = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.repeat) return;
+      if (e.type === "keydown" && boundKey === e.key) {
+        activatePad(true);
+      } else {
+        activatePad(false);
+      }
+    },
+    [activatePad, boundKey]
+  );
 
-  // function handleKeyDown(e: React.KeyboardEvent<HTMLButtonElement>) {
-  function handleKeyDown(e: React.KeyboardEvent) {
-    if (e.repeat) return;
-    console.log("e.key =>", e.key);
-    console.log("keyboard =>", keyboardKey);
-    if (e.key === keyboardKey) {
-      activate();
-    }
-  }
-
-  // function handleKeyUp(e: React.KeyboardEvent<HTMLButtonElement>) {
-  function handleKeyUp(e: React.KeyboardEvent) {
-    if (e.key === keyboardKey) {
-      deactivate();
-    }
-  }
+  useEffect(() => {
+    document.addEventListener("keydown", handleKey);
+    document.addEventListener("keyup", handleKey);
+    return () => {
+      document.removeEventListener("keydown", handleKey);
+      document.removeEventListener("keyup", handleKey);
+    };
+  }, [handleKey]);
 
   return (
     <div
-      onMouseDown={activate}
-      onMouseUp={deactivate}
-      onMouseLeave={deactivate}
-      onKeyDown={handleKeyDown}
-      onKeyUp={handleKeyUp}
+      onMouseDown={() => activatePad(true)}
+      onMouseUp={() => activatePad(false)}
+      onMouseLeave={() => activatePad(false)}
       className={active ? "pad playing" : "pad"}
-      data-key={keyboardKey}
     >
-      {keyboardKey}
+      {boundKey}
     </div>
   );
 }
