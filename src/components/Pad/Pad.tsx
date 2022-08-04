@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useMemo } from "react";
 import { useCallback } from "react";
 
@@ -12,6 +12,11 @@ type Props = {
 function Pad({ boundKey, file }: Props) {
   const [active, setActive] = useState(false);
   const audio = useMemo(() => new Audio(file), [file]);
+
+  const modifierKeyActive = useCallback(
+    (e: KeyboardEvent | React.MouseEvent) => e.altKey || e.ctrlKey || e.metaKey || e.shiftKey,
+    []
+  );
 
   const activatePad = useCallback(
     (activate: boolean) => {
@@ -27,13 +32,13 @@ function Pad({ boundKey, file }: Props) {
   const handleKey = useCallback(
     (e: KeyboardEvent) => {
       if (e.repeat) return;
-      if (e.type === "keydown" && boundKey === e.key) {
+      if (e.type === "keydown" && boundKey === e.key && !modifierKeyActive(e)) {
         activatePad(true);
       } else {
         activatePad(false);
       }
     },
-    [activatePad, boundKey]
+    [activatePad, boundKey, modifierKeyActive]
   );
 
   useEffect(() => {
@@ -46,14 +51,14 @@ function Pad({ boundKey, file }: Props) {
   }, [handleKey]);
 
   return (
-    <div
-      onMouseDown={() => activatePad(true)}
+    <button
+      onMouseDown={(e: React.MouseEvent) => !modifierKeyActive(e) && activatePad(true)}
       onMouseUp={() => activatePad(false)}
       onMouseLeave={() => activatePad(false)}
       className={active ? "pad playing" : "pad"}
     >
       {boundKey}
-    </div>
+    </button>
   );
 }
 
