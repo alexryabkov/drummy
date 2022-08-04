@@ -1,4 +1,4 @@
-import "./styles/Notes.scss";
+import "./styles/NotesPanel.scss";
 
 function Notes() {
   const numOfRows = 2;

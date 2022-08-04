@@ -1,11 +1,11 @@
 import Controls from "./components/Controls/Controls";
-import Notes from "./components/Notes/Notes";
+import NotesPanel from "./components/NotesPanel/NotesPanel";
 
 function App() {
   return (
     <main>
       <Controls />
-      <Notes />
+      <NotesPanel />
     </main>
   );
 }
