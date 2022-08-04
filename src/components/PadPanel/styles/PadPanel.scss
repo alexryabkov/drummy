@@ -1,0 +1,15 @@
+@import "src/styles/common.scss";
+
+.pad-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 19.3rem;
+  height: 14.3rem;
+  margin: $main-indent $main-indent 0.6rem $main-indent + 0.6rem;
+}
+
+.pad-row {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,26 @@
+@import "src/styles/common.scss";
+
+.notes {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 38.75rem;
+  height: 8.75rem;
+  margin: $main-indent;
+}
+
+.note-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.note {
+  border: none;
+  box-sizing: border-box;
+  box-shadow: 0rem 0.3rem 0.3rem rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  width: 3.8rem;
+  height: 3.8rem;
+  background: $button-background-light;
+  font-size: 1.4rem;
+}

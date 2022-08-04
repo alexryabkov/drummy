@@ -1,0 +1,44 @@
+$text-color: #c9c9c9;
+$main-indent: 1.25rem;
+$display-color: #1769e3;
+$run-btn-text-color: #0d9151;
+$clear-btn-text-color: #c42727;
+$button-background-dark: #424242;
+$button-background-light: #a5a5a5;
+$border-color-dark: #101010;
+$background-color-dark: #2d2d2d;
+$playing-color: rgb(211, 19, 19);
+
+@import url("https://fonts.googleapis.com/css2?family=Aldrich&family=Roboto:wght@100;300&display=swap");
+@font-face {
+  font-family: "Digital Numbers Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Digital Numbers Regular"), url("../fonts/DigitalNumbers-Regular.woff") format("woff");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("../images/cool-background-white.png");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+*:focus {
+  outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+main {
+  background: $background-color-dark;
+  mix-blend-mode: hard-light;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}

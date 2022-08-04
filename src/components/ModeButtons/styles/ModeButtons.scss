@@ -1,0 +1,24 @@
+@import "src/styles/common.scss";
+
+.mode-btns {
+  display: flex;
+  margin: 0.1rem 0rem;
+}
+
+.run-btn {
+  margin-right: 1.2rem;
+  span {
+    color: $run-btn-text-color;
+  }
+}
+
+.select-mode-btn {
+  margin-right: 1.2rem;
+  span {
+    color: $text-color;
+  }
+}
+
+.clear-btn span {
+  color: $clear-btn-text-color;
+}

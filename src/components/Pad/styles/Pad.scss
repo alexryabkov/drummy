@@ -1,0 +1,26 @@
+@import "src/styles/common.scss";
+
+.pad {
+  border: none;
+  box-sizing: border-box;
+  box-shadow: 0rem 0.3rem 0.3rem rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  width: 4.4rem;
+  height: 4.4rem;
+  background: $button-background-dark;
+  font-size: 1.4rem;
+  font-family: "Roboto", sans-serif;
+  color: $text-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.playing {
+  box-shadow: 0rem 0rem 0.7rem $playing-color;
+  color: $playing-color;
+}
