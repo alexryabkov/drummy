@@ -32,10 +32,8 @@ function Pad({ boundKey, file }: Props) {
   const handleKey = useCallback(
     (e: KeyboardEvent) => {
       if (e.repeat) return;
-      if (e.type === "keydown" && boundKey === e.key && !modifierKeyActive(e)) {
-        activatePad(true);
-      } else {
-        activatePad(false);
+      if (boundKey === e.key && !modifierKeyActive(e)) {
+        e.type === "keydown" ? activatePad(true) : activatePad(false);
       }
     },
     [activatePad, boundKey, modifierKeyActive]
