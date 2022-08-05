@@ -16,26 +16,13 @@ function PadPanel() {
     ["d", "/sounds/tom2.mp3"],
     ["f", "/sounds/tom3.mp3"],
   ];
-  const padsPerRow = 4;
-  let currentRow = 1;
-  const rows: JSX.Element[] = [];
-  let row: JSX.Element[] = [];
 
+  let pads: JSX.Element[] = [];
   for (let [boundKey, file] of soundKeysToFiles) {
-    row.push(<Pad key={`pad-${boundKey}`} boundKey={boundKey} file={file} />);
-
-    if (row.length === padsPerRow) {
-      rows.push(
-        <div key={`pad-row-${currentRow}`} className="pad-row">
-          {row}
-        </div>
-      );
-      row = [];
-      currentRow++;
-    }
+    pads.push(<Pad key={`pad-${boundKey}`} boundKey={boundKey} file={file} />);
   }
 
-  return <div className="pad-panel">{rows}</div>;
+  return <div className="pad-panel">{pads}</div>;
 }
 
 export default PadPanel;
