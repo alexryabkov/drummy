@@ -1,13 +1,15 @@
 $text-color: #c9c9c9;
 $main-indent: 1.25rem;
 $display-color: #1769e3;
-$run-btn-text-color: #0d9151;
-$clear-btn-text-color: #c42727;
-$button-background-dark: #424242;
-$button-background-light: #a5a5a5;
+$btn-color-green: #0d9151;
+$btn-color-red: #c42727;
+$btn-background-dark: #424242;
+$btn-background-light: #a5a5a5;
 $border-color-dark: #101010;
 $background-color-dark: #2d2d2d;
-$playing-color: rgb(211, 19, 19);
+$playing-color-blue: $display-color;
+$playing-color-red: #d31313;
+$playing-color-green: $btn-color-green;
 
 @import url("https://fonts.googleapis.com/css2?family=Aldrich&family=Roboto:wght@100;300&display=swap");
 @font-face {

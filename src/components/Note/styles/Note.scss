@@ -1,0 +1,19 @@
+@import "src/styles/common.scss";
+
+.note {
+  border: none;
+  box-sizing: border-box;
+  box-shadow: 0rem 0.3rem 0.3rem rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  height: 3.8rem;
+  background: $btn-background-light;
+  font-size: 1.4rem;
+}
+
+.note-selected {
+  background: radial-gradient($btn-background-light, $playing-color-blue);
+}
+
+.note-playing {
+  background: radial-gradient($btn-background-light, $playing-color-green);
+}

@@ -8,7 +8,7 @@ type Props = {
 
 function ControlButton({ extraClsName = "", iconCode = "", caption = "" }: Props) {
   return (
-    <button className={("control-btn " + extraClsName).trim()}>
+    <button className={`control-btn ${extraClsName}`.trim()}>
       <span>{iconCode}</span>
       {caption}
     </button>

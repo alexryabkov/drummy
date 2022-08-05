@@ -1,23 +1,15 @@
+import Note from "components/Note/Note";
 import "./styles/NotesPanel.scss";
 
 function Notes() {
-  const numOfRows = 2;
-  const notesPerRow = 8;
+  const numOfNotes = 16;
+  const groups: JSX.Element[] = [];
 
-  const rows: JSX.Element[] = [];
-  for (let i = 0; i < numOfRows; i++) {
-    const row: JSX.Element[] = [];
-    for (let j = 0; j < notesPerRow; j++) {
-      row.push(<button key={`note-${j + i + 1}`} className="note" />);
-    }
-    rows.push(
-      <div key={`note-row-${i + 1}`} className="note-row">
-        {row}
-      </div>
-    );
+  for (let i = 0; i < numOfNotes; i++) {
+    groups.push(<Note key={`note-${i + 1}`} />);
   }
 
-  return <div className="notes">{rows}</div>;
+  return <div className="notes">{groups}</div>;
 }
 
 export default Notes;

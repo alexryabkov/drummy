@@ -55,7 +55,7 @@ function Pad({ boundKey, file }: Props) {
       onMouseDown={(e: React.MouseEvent) => !modifierKeyActive(e) && activatePad(true)}
       onMouseUp={() => activatePad(false)}
       onMouseLeave={() => activatePad(false)}
-      className={active ? "pad playing" : "pad"}
+      className={active ? "pad pad-playing" : "pad"}
     >
       {boundKey}
     </button>

@@ -8,7 +8,7 @@
 .run-btn {
   margin-right: 1.2rem;
   span {
-    color: $run-btn-text-color;
+    color: $btn-color-green;
   }
 }
 
@@ -20,5 +20,5 @@
 }
 
 .clear-btn span {
-  color: $clear-btn-text-color;
+  color: $btn-color-red;
 }

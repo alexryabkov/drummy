@@ -7,7 +7,7 @@
   border-radius: 10px;
   width: 4.4rem;
   height: 4.4rem;
-  background: $button-background-dark;
+  background: $btn-background-dark;
   font-size: 1.4rem;
   font-family: "Roboto", sans-serif;
   color: $text-color;
@@ -20,7 +20,7 @@
   }
 }
 
-.playing {
-  box-shadow: 0rem 0rem 0.7rem $playing-color;
-  color: $playing-color;
+.pad-playing {
+  box-shadow: 0rem 0rem 0.7rem $playing-color-red;
+  color: $playing-color-red;
 }
